@@ -1,0 +1,72 @@
+/* Input.css - Enhanced Fancy Version */
+.input-container {
+  margin-bottom: 1.5rem;
+  width:100%;
+  position: relative;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: all 0.3s ease;
+}
+
+.input-field {
+  --background: #ffffff;
+  --border-radius: 10px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 52px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+/* Fix for text color - ensures input text is visible */
+.input-field ion-input {
+  --color: #2d3748 !important; /* Dark gray text */
+  --placeholder-color: #a0aec0 !important;
+  --placeholder-opacity: 1 !important;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-size: 1rem;
+}
+
+.input-field:hover {
+  border-color: #cbd5e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.input-field.item-has-focus {
+  border: 1px solid #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  transform: translateY(-1px);
+}
+
+.input-field.disabled {
+  --background: #f8fafc;
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* Floating label animation when focused */
+.input-field.item-has-focus + .input-label {
+  color: #667eea;
+  transform: translateY(-2px);
+}
+
+/* Optional: Add a subtle glow effect */
+@keyframes subtleGlow {
+  0% { box-shadow: 0 0 0 rgba(102, 126, 234, 0); }
+  50% { box-shadow: 0 0 10px rgba(102, 126, 234, 0.3); }
+  100% { box-shadow: 0 0 0 rgba(102, 126, 234, 0); }
+}
+
+.input-field.item-has-focus {
+  animation: subtleGlow 2s infinite;
+}

@@ -1,0 +1,88 @@
+
+
+/* Search container styling */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #e3e4e6; /* Light background */
+  border-bottom: 1px solid #e0e0e0; /* Subtle separation */
+}
+
+.search-container ion-searchbar {
+  width: 700px;
+  flex-shrink: 0;
+  --background: #0e0c0c;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Icon group styling */
+.icon-group {
+  display: flex;
+  gap: 15px; /* Slightly larger gap */
+  padding: 0 10px;
+}
+
+/* Blue accent icons (changed from yellow to match your !important colors) */
+.icon-blue {
+  color: #00a2ff !important;
+  --ion-color-base: #00d9ff !important;
+  --ion-color-contrast: #000000 !important;
+  font-size: 26px; /* Slightly larger */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.icon-blue:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  background-color: rgba(0, 210, 255, 0.1);
+}
+
+/* Disabled state */
+.icon-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: transparent !important;
+}
+
+/* Additional district-specific styles */
+.district-table-header {
+  background-color: #00a2ff;
+  color: white;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .search-container ion-searchbar {
+    width: 100%;
+  }
+  
+  .icon-group {
+    justify-content: center;
+    gap: 25px;
+  }
+}
+
+/* Animation for district operations */
+@keyframes districtPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.district-action {
+  animation: districtPulse 0.3s ease;
+}

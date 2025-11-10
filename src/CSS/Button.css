@@ -1,0 +1,39 @@
+.custom-btn {
+  --border-radius: 8px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  height: 44px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.25px;
+  transition: all 0.2s ease;
+}
+
+.custom-btn.primary {
+  --background: #2563eb;
+  --background-hover: #1d4ed8;
+  --background-activated: #1d4ed8;
+}
+
+.custom-btn.secondary {
+  --background: #f3f4f6;
+  --color: #374151;
+  --background-hover: #e5e7eb;
+  --background-activated: #e5e7eb;
+}
+
+.custom-btn:hover {
+  transform: translateY(-1px);
+}
+
+.custom-btn:active {
+  transform: translateY(0);
+}
+
+.custom-btn[disabled] {
+  --background: #e5e7eb;
+  --color: #9ca3af;
+  transform: none !important;
+}

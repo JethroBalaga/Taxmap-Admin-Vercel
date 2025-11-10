@@ -1,0 +1,188 @@
+.sheet {
+  width: 100%;
+  background: white;
+  padding: 6mm;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.section-header {
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 6px;
+  color: #000000;
+  background-color: transparent;
+  padding: 3px 5px;
+  border: 1px solid #000000; /* Changed from #1e3f7a to black */
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+  table-layout: fixed;
+  border: 1px solid #000000; /* Changed from #1e3f7a to black */
+}
+
+.table th,
+.table td {
+  border: 1px solid #000000; /* Changed from #1e3f7a to black */
+  padding: 1px 2px;
+  font-size: 9px;
+  line-height: 1.1;
+  height: 18px;
+  overflow: hidden;
+  word-wrap: break-word;
+  color: #000;
+}
+
+/* Your original column widths and styles */
+.adjustment-table th:nth-child(1),
+.adjustment-table td:nth-child(1) { width: 20%; }
+.adjustment-table th:nth-child(2),
+.adjustment-table td:nth-child(2) { width: 20%; }
+.adjustment-table th:nth-child(3),
+.adjustment-table td:nth-child(3) { width: 20%; }
+.adjustment-table th:nth-child(4),
+.adjustment-table td:nth-child(4) { width: 20%; }
+.adjustment-table th:nth-child(5),
+.adjustment-table td:nth-child(5) { width: 20%; }
+
+.assessment-table th:nth-child(1),
+.assessment-table td:nth-child(1) { width: 25%; }
+.assessment-table th:nth-child(2),
+.assessment-table td:nth-child(2) { width: 25%; }
+.assessment-table th:nth-child(3),
+.assessment-table td:nth-child(3) { width: 25%; }
+.assessment-table th:nth-child(4),
+.assessment-table td:nth-child(4) { width: 25%; }
+
+.superseded-table td:nth-child(odd) { width: 25%; }
+.superseded-table td:nth-child(even) { width: 25%; }
+
+.subclass-table th:nth-child(1),
+.subclass-table td:nth-child(1) { width: 25%; }
+.subclass-table th:nth-child(2),
+.subclass-table td:nth-child(2) { width: 15%; }
+.subclass-table th:nth-child(3),
+.subclass-table td:nth-child(3) { width: 15%; }
+.subclass-table th:nth-child(4),
+.subclass-table td:nth-child(4) { width: 22.5%; }
+.subclass-table th:nth-child(5),
+.subclass-table td:nth-child(5) { width: 22.5%; }
+
+.table input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 9px;
+  padding: 0 1px;
+  line-height: 1.1;
+  height: 16px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #000;
+}
+
+.subtotal-row td {
+  font-weight: bold;
+  background-color: #f0f0f0; /* Added light gray background for better readability */
+  font-size: 9px;
+}
+
+.tax-row {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 10px;
+  color: #000;
+}
+
+.tax-row label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.tax-row input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  accent-color: #000000; /* Changed from #2c5aa0 to black */
+}
+
+.signature-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+  color: #000;
+  text-align: center;
+}
+
+.sig-line {
+  border-bottom: 1px solid #000000; /* Changed from #1e3f7a to black */
+  width: 200px;
+  height: 16px;
+  margin: 5px auto;
+}
+
+.prov {
+  font-size: 9px;
+  text-align: center;
+  color: #000;
+  margin-top: 3px;
+}
+
+.memoranda {
+  margin-top: 20px;
+  font-size: 9px;
+  line-height: 1.2;
+  color: #000;
+  border-top: 1px solid #000000; /* Changed from #1e3f7a to black */
+  padding-top: 5px;
+}
+
+.powered {
+  margin-top: 5px;
+  font-size: 8px;
+  text-align: right;
+  color: #000000; /* Changed from #2c5aa0 to black */
+  font-weight: bold;
+}
+
+.table th {
+  font-size: 9px;
+  font-weight: bold;
+  background-color: #f5f5f5; /* Added light gray background for headers */
+  padding: 3px 2px;
+  text-align: center;
+  color: #000;
+}
+
+.generate-pdf-btn {
+  --background: #000000 !important; /* Changed from #2c5aa0 to black */
+  --background-hover: #333333 !important; /* Dark gray on hover */
+  --background-activated: #333333 !important;
+  --background-focused: #333333 !important;
+  --color: white !important;
+  --border-color: #000000 !important; /* Changed from #1e3f7a to black */
+  --border-radius: 8px !important;
+  --padding-start: 12px !important;
+  --padding-end: 12px !important;
+  font-weight: bold !important;
+}
+
+.generate-pdf-btn:hover {
+  --background: #333333 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Changed to black shadow */
+}
+
+.generate-pdf-btn:active {
+  --background: #666666 !important;
+  transform: translateY(0);
+}

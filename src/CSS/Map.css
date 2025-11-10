@@ -1,0 +1,591 @@
+/* Map content container */
+.map-content {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Search Bar Styles - Now in header */
+.map-searchbar {
+  --background: rgba(255, 255, 255, 0.95);
+  --backdrop-filter: blur(10px);
+  --border-radius: 8px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --placeholder-color: #666;
+  padding: 8px 16px;
+  width: 30%; /* Reduced width */
+  margin: 0 auto; /* Center it */
+}
+
+/* Search container styling - matching Forms.tsx layout style */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.search-container ion-searchbar {
+  width: 700px;
+  flex-shrink: 0;
+  --background: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Icon group styling - tight spacing */
+.icon-group {
+  display: flex;
+  gap: 4px; /* Tight spacing like Forms component */
+  padding: 0 10px;
+}
+
+/* Blue accent icon for clear button */
+.icon-blue {
+  color: #00a2ff !important;
+  --ion-color-base: #00d9ff !important;
+  --ion-color-contrast: #000000 !important;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.icon-blue:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  background-color: rgba(0, 210, 255, 0.1);
+}
+
+/* Remove the old search bar container styles */
+.search-bar-container {
+  display: none;
+}
+
+/* Remove username styles since we're hiding it */
+.username-center-top {
+  display: none;
+}
+
+/* Map card styling */
+.map-card {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* This ensures the map container fills the card */
+.map-card > div {
+  height: 100%;
+  width: 100%;
+}
+
+/* Ensure Leaflet markers display correctly */
+.leaflet-marker-icon {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Make markers more interactive */
+.leaflet-marker-icon:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+
+/* Custom popup styles */
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px;
+}
+
+/* Satellite toggle button styles - POSITIONED ABOVE ZOOM CONTROLS */
+.satellite-toggle-container {
+  margin-bottom: 0;
+}
+
+/* Target the topleft control container and adjust layout */
+.leaflet-control-container .leaflet-top.leaflet-left {
+  display: flex;
+  flex-direction: column-reverse; /* This reverses the order so toggle is above zoom */
+  align-items: flex-start;
+}
+
+/* Ensure proper spacing between controls with margin bottom */
+.leaflet-control-container .leaflet-top.leaflet-left .leaflet-control {
+  margin-top: 10px;
+  margin-bottom: 10px; /* Added margin bottom for both toggle and zoom */
+}
+
+/* Remove top margin from the first control (zoom) to avoid extra space */
+.leaflet-control-container .leaflet-top.leaflet-left .leaflet-control-zoom {
+  margin-top: 0;
+}
+
+.satellite-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: auto;
+  min-width: 90px;
+  height: 30px;
+  background: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 8px;
+  color: #333;
+}
+
+.satellite-toggle-btn:hover {
+  background: #f4f4f4;
+}
+
+.satellite-toggle-btn:active {
+  background: #e9e9e9;
+}
+
+/* Filter button styles */
+.filter-toggle-container {
+  margin-bottom: 0;
+}
+
+.filter-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: auto;
+  min-width: 90px;
+  height: 30px;
+  background: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 8px;
+  color: #333;
+}
+
+.filter-toggle-btn:hover {
+  background: #f4f4f4;
+}
+
+.filter-toggle-btn:active {
+  background: #e9e9e9;
+}
+
+/* Filter panel styles */
+.filter-panel {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 15px;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+/* Fan-shaped filter options */
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.filter-option:hover {
+  background: #f5f5f5;
+}
+
+.filter-option.active {
+  background: #e6f7ff;
+  border: 1px solid #1890ff;
+}
+
+.filter-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+}
+
+.filter-badge {
+  background: #1890ff;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Fan shape arrangement for multiple filters */
+.filter-fan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+}
+
+.filter-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* FIX: Update control container for multiple buttons */
+.leaflet-control-container .leaflet-top.leaflet-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Custom popup overlay positioning */
+.popup-overlay-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+/* Internet status notification */
+.internet-status {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4f;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.internet-status.online {
+  background-color: #52c41a;
+}
+
+/* Remove the old username positioning styles */
+.username-below-header {
+  display: none;
+}
+
+/* New Status Popover Styles */
+.new-status-popover {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  z-index: 1001;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  animation: pulse 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px rgba(255, 68, 68, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
+  }
+}
+
+/* Custom marker wrapper for new status */
+.marker-with-popover {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip for new status */
+.new-status-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1002;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.new-status-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333;
+}
+
+.marker-with-popover:hover .new-status-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Custom marker styles */
+.custom-marker-container {
+  position: relative;
+}
+
+.custom-marker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.status-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.new-marker {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Enhanced popup content for new properties */
+.property-popup {
+  min-width: 200px;
+}
+
+.new-badge {
+  display: inline-block;
+  background: #ff4444;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 8px;
+  animation: pulse 2s infinite;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.popup-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.popup-details {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.popup-details p {
+  margin: 4px 0;
+}
+
+/* Status indicator styles for map markers */
+.status-indicator {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.status-new {
+  background: #ff4444;
+  animation: statusPulse 1.5s infinite;
+}
+
+.status-inspected {
+  background: #52c41a;
+}
+
+.status-pending {
+  background: #faad14;
+}
+
+@keyframes statusPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .map-searchbar {
+    padding: 6px 12px;
+    width: 80%; /* Wider on mobile for better usability */
+  }
+  
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .search-container ion-searchbar {
+    width: 100%;
+  }
+  
+  .icon-group {
+    justify-content: center;
+    gap: 25px;
+  }
+  
+  /* Adjust map controls for mobile */
+  .satellite-toggle-btn,
+  .filter-toggle-btn {
+    min-width: 80px;
+    font-size: 11px;
+    padding: 0 6px;
+  }
+  
+  .filter-panel {
+    min-width: 180px;
+    padding: 12px;
+  }
+
+  /* Adjust popup for mobile */
+  .popup-overlay-container {
+    width: 95%;
+    max-width: 350px;
+  }
+
+  /* Adjust status indicators for mobile */
+  .status-badge,
+  .new-status-popover {
+    width: 16px;
+    height: 16px;
+    font-size: 8px;
+  }
+
+  .status-indicator {
+    width: 10px;
+    height: 10px;
+  }
+}

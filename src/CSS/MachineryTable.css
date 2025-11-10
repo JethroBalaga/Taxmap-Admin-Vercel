@@ -1,0 +1,243 @@
+.machinery-admin-container {
+  padding: 16px;
+}
+
+.info-card {
+  height: 100%;
+  text-align: center;
+}
+
+.info-card ion-card-title {
+  font-size: 0.9em;
+  color: var(--ion-color-medium);
+}
+
+.summary-card {
+  height: 100%;
+  text-align: center;
+}
+
+.summary-card ion-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1em;
+}
+
+.summary-value {
+  display: block;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.total-value-card {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.equipment-card {
+  --background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.life-card {
+  --background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.search-section {
+  margin: 20px 0;
+}
+
+.table-section {
+  margin-top: 20px;
+}
+
+/* Machine Card Styling - Match Dynamic Table Width */
+.machine-card {
+  width: 100%;
+  max-width: 100%; /* This will make it same width as dynamic table */
+  margin: 16px 0; /* Remove auto margin to use full container width */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.machine-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 1.4em;
+  font-weight: 600;
+  flex: 1;
+}
+
+.card-title-icon {
+  margin-right: 12px;
+  color: var(--ion-color-primary);
+  font-size: 1.6em;
+}
+
+.card-section {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.card-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-title h4 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.section-icon {
+  margin-right: 10px;
+  font-size: 1.3em;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.info-item label {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item ion-text {
+  font-size: 1em;
+  word-break: break-word;
+}
+
+.calculated-value {
+  font-weight: 600;
+  color: var(--ion-color-primary);
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border-left: 3px solid var(--ion-color-primary);
+}
+
+.total-cost {
+  color: var(--ion-color-secondary);
+  border-left-color: var(--ion-color-secondary);
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.market-value {
+  color: var(--ion-color-success);
+  border-left-color: var(--ion-color-success);
+  background-color: rgba(45, 211, 111, 0.1);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  gap: 16px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--ion-color-medium);
+  height: 60vh;
+}
+
+.empty-state ion-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  color: var(--ion-color-primary);
+}
+
+/* Form Info Cards Layout */
+.form-info-cards {
+  margin-bottom: 24px;
+}
+
+/* Assessment Section */
+.assessment-section {
+  margin: 24px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .machinery-admin-container {
+    padding: 8px;
+  }
+  
+  .summary-value {
+    font-size: 1.4em;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .card-title {
+    font-size: 1.2em;
+  }
+  
+  .machine-card {
+    margin: 8px 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .machinery-admin-container {
+    padding: 24px;
+  }
+  
+  .info-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}

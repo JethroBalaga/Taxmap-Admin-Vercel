@@ -1,0 +1,149 @@
+/* Add to your existing CSS file or create a new one */
+.agricultural-card {
+  width: 100%;
+  margin: 16px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.agricultural-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.agricultural-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0;
+  gap: 16px;
+}
+
+.agricultural-title {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 1.4em;
+  font-weight: 600;
+  flex: 1;
+}
+
+.agricultural-title-icon {
+  margin-right: 12px;
+  color: var(--ion-color-success);
+  font-size: 1.6em;
+}
+
+.agricultural-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.agricultural-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--ion-color-light);
+  border-radius: 8px;
+  border-left: 4px solid var(--ion-color-success);
+  transition: all 0.3s ease;
+}
+
+.agricultural-item:hover {
+  background: rgba(var(--ion-color-success-rgb), 0.05);
+  transform: translateX(4px);
+}
+
+.agricultural-item label {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.agricultural-value {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--ion-color-success);
+  word-break: break-word;
+}
+
+.agricultural-section {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.agricultural-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.agricultural-section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.agricultural-section-title h4 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+}
+
+.agricultural-section-icon {
+  margin-right: 10px;
+  font-size: 1.3em;
+  color: var(--ion-color-success);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .agricultural-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .agricultural-title {
+    font-size: 1.2em;
+  }
+  
+  .agricultural-item {
+    padding: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .agricultural-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .agricultural-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+.agricultural-value.total-adjustment {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--ion-color-primary);
+}
+.agricultural-value.adjusted-market-value {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--ion-color-success);
+  background-color: rgba(var(--ion-color-success-rgb), 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--ion-color-success);
+}

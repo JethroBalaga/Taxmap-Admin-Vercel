@@ -1,0 +1,63 @@
+/* Setup.css */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.search-container ion-searchbar {
+  width: 700px;
+  flex-shrink: 0;
+}
+
+.icon-group {
+  display: flex;
+  gap: 0px; /* No gap - icons will be touching */
+  align-items: center;
+}
+
+/* Blue icons */
+.icon-blue {
+  color: #00a2ff !important;
+  --ion-color-base: #00d9ff !important;
+  --ion-color-contrast: #000000 !important;
+  font-size: 24px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Yellow icons with !important to override Ionic defaults */
+.icon-yellow {
+  color: #00a2ff !important;
+  --ion-color-base: #00d9ff !important;
+  --ion-color-contrast: #000000 !important;
+  font-size: 24px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.icon-yellow:hover,
+.icon-blue:hover {
+  opacity: 0.8;
+}
+
+.icon-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Remove any padding/margin from the buttons */
+.icon-group ion-button {
+  --padding-start: 4px;
+  --padding-end: 4px;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  margin: 0;
+  min-height: auto;
+}

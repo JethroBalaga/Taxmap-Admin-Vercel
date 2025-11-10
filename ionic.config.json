@@ -1,0 +1,7 @@
+{
+  "name": "Taxmap-Admin-Vercel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
